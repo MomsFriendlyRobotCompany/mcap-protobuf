@@ -7,8 +7,11 @@
 
 .PHONY: generate-protobuf
 generate-protobuf:
-	rm -rf gen/proto/*_pb2*
-	protoc --python_out=pyi_out:py --cpp_out=cpp proto/*.proto
+	rm -rf py/*
+	rm -rf cpp/*
+	protoc --python_out=pyi_out:py --cpp_out=cpp --proto_path=proto proto/*.proto
+
+# protoc --python_out=pyi_out:py --proto_path=proto --cpp_out=cpp proto/*.proto
 # --proto_path proto/*.proto
 # --mypy_out=gen/proto
 # mv foxglove-schemas-protobuf/foxglove_schemas_protobuf/foxglove/* foxglove-schemas-protobuf/foxglove_schemas_protobuf
@@ -24,8 +27,11 @@ generate-protobuf:
 .PHONY: clean
 clean:
 	rm -rf dist
+	rm -rf py/*
+	rm -rf cpp/*
 	find . -name "build" -type d -exec rm -rf {} +
 	find . -name "dist" -type d -exec rm -rf {} +
 	find . -name "*.egg-info" -type d -exec rm -rf {} +
+	find . -name "__pycache__" -type d -exec rm -rf {} +
 	find . -name "*_pb2*" -delete
 	find . -name "*.mcap" -delete

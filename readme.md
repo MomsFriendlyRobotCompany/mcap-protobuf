@@ -1,5 +1,13 @@
 # Protobuf and MCAP Testing
 
+## Linux
+
+```bash
+apt install -y protobuf-compiler
+```
+
+## macOS
+
 ```bash
 brew install protobuf
 brew install mcap

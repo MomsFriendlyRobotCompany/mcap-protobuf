@@ -6,7 +6,7 @@
 #     publish_time: int | None = None,
 #     sequence: int = 0)[source]
 # Writes a message to an MCAP file.
-
+#
 # Parameters:
 #     topic: the topic that this message was originally published on.
 #     message: a Protobuf object to write into the MCAP.
@@ -17,17 +17,13 @@
 import sys
 from time import sleep, time_ns
 import datetime as dt
-
 from mcap_protobuf.writer import Writer
-from py.proto.imu_pb2 import Imu
-from py.proto.vector_pb2 import Vector
-from py.proto.quaternion_pb2 import Quaternion
+from py.msgs_pb2 import Imu, Vector, Quaternion
 
 
 def main():
     with open(sys.argv[1], "wb") as f, Writer(f) as mcap_writer:
         for i in range(10):
-            # ts = dt.datetime.now().isoformat()
             ts = time_ns()
             mcap_writer.write_message(
                 topic="/simple_messages",
@@ -44,15 +40,7 @@ def main():
                 log_time=ts,
                 publish_time=ts,
             )
-            # complex_message = ComplexMessage(
-            #     fieldA=f"Field A {i}", fieldB=f"Field B {i}"
-            # )
-            # mcap_writer.write_message(
-            #     topic="/complex_messages",
-            #     message=complex_message,
-            #     log_time=i * 1000,
-            #     publish_time=i * 1000,
-            # )
+
             sleep(0.25)
 
 

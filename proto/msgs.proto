@@ -1,13 +1,28 @@
 syntax = "proto3";
 
-import "proto/vector.proto";
+// import "proto/vector.proto";
 // import "proto/quaternion.proto";
+// import "vector.proto";
+// import "quaternion.proto";
 
 
 // import "foxglove/Vector3.proto";
-import "foxglove/Quaternion.proto";
+// import "foxglove/Quaternion.proto";
 
 package kevin;
+
+message Vector {
+  double x = 1;
+  double y = 2;
+  double z = 3;
+}
+
+message Quaternion {
+  double w = 1; // real value
+  double x = 2; // x imaginary value
+  double y = 3; // y imaginary value
+  double z = 4; // z imaginary value
+}
 
 message Imu {
     // foxglove.Vector3 accels = 1;
