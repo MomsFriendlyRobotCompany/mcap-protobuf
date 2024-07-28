@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "proto/vector.proto";
+// import "proto/quaternion.proto";
+
+
+// import "foxglove/Vector3.proto";
+import "foxglove/Quaternion.proto";
+
+package kevin;
+
+message Imu {
+    // foxglove.Vector3 accels = 1;
+    // foxglove.Vector3 gyros = 2;
+    // foxglove.Vector3 mags = 3;
+    // foxglove.Quaternion orientation = 4;
+    Vector accels = 1;
+    Vector gyros = 2;
+    Vector mags = 3;
+    Quaternion orientation = 4;
+    double imu_temp = 5;
+    double temperature = 6;
+    double pressure = 7;
+    double altitude = 8;
+    bool calibrated = 9;
+    uint64 timestamp = 10;
+}

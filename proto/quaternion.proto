@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+message Quaternion {
+  double w = 1; // real value
+  double x = 2; // x imaginary value
+  double y = 3; // y imaginary value
+  double z = 4; // z imaginary value
+}
