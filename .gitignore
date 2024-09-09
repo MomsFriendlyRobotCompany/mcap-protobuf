@@ -3,3 +3,8 @@ old
 .DS_Store
 ._*
 *.mcap
+examples/msgs
+__pycache__
+build
+dist
+*.lock

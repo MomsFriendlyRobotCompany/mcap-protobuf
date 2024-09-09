@@ -7,9 +7,11 @@
 
 .PHONY: generate-protobuf
 generate-protobuf:
-	rm -rf py/*
-	rm -rf cpp/*
-	protoc --python_out=pyi_out:py --cpp_out=cpp --proto_path=proto proto/*.proto
+	rm -rf msgs/python/*
+	rm -rf msgs/cpp/*
+	mkdir -p msgs/cpp
+	mkdir -p msgs/python
+	protoc --python_out=pyi_out:msgs/python --cpp_out=msgs/cpp --proto_path=proto proto/*.proto
 
 # protoc --python_out=pyi_out:py --proto_path=proto --cpp_out=cpp proto/*.proto
 # --proto_path proto/*.proto
@@ -27,8 +29,7 @@ generate-protobuf:
 .PHONY: clean
 clean:
 	rm -rf dist
-	rm -rf py/*
-	rm -rf cpp/*
+	rm -rf msgs
 	find . -name "build" -type d -exec rm -rf {} +
 	find . -name "dist" -type d -exec rm -rf {} +
 	find . -name "*.egg-info" -type d -exec rm -rf {} +

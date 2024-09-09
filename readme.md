@@ -1,3 +1,5 @@
+![](docs/brian.webp)
+
 # Protobuf and MCAP Testing
 
 ## Linux

@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+// import "foxglove/Vector3.proto";
+// import "foxglove/Quaternion.proto";
+import "google/protobuf/timestamp.proto";
+
+// https://github.com/foxglove/schemas/blob/main/schemas/proto/foxglove/CompressedImage.proto
+
+package kevin;
+
+message Vector {
+  double x = 1;
+  double y = 2;
+  double z = 3;
+}
+
+// message Quaternion {
+//   double w = 1; // real value
+//   double x = 2; // x imaginary value
+//   double y = 3; // y imaginary value
+//   double z = 4; // z imaginary value
+// }
+
+message RawFullImu {
+    // foxglove.Vector3 accels = 1;
+    // foxglove.Vector3 gyros = 2;
+    // foxglove.Vector3 mags = 3;
+    // foxglove.Quaternion orientation = 4;
+    Vector accels = 1;
+    Vector gyros = 2;
+    Vector mags = 3;
+    double imu_temp = 4;
+    double temperature = 5;
+    double pressure = 6;
+    // uint64 timestamp = 7;
+    google.protobuf.Timestamp timestamp = 7;
+    // Timestamp = 7;
+}
+
+// message CalibratedImu {
+//     // foxglove.Vector3 accels = 1;
+//     // foxglove.Vector3 gyros = 2;
+//     // foxglove.Vector3 mags = 3;
+//     // foxglove.Quaternion orientation = 4;
+//     Vector accels = 1;
+//     Vector gyros = 2;
+//     Vector mags = 3;
+//     Quaternion orientation = 4;
+//     double imu_temp = 5;
+//     double temperature = 6;
+//     double pressure = 7;
+//     double altitude = 8;
+//     // uint64 timestamp = 9;
+//     // google.protobuf.Timestamp timestamp = 9;
+// }
+
+
+// message RawImu {
+//     Vector accels = 1;
+//     Vector gyros = 2;
+//     double imu_temp = 3;
+//     // uint64 timestamp = 4;
+//     // google.protobuf.Timestamp timestamp = 4;
+// }
+
+// message RawMag {
+//     Vector mags = 1;
+//     // uint64 timestamp = 2;
+//     // google.protobuf.Timestamp timestamp = 2;
+// }
+
+// message Image {
+//     bytes data = 1;
+//     int32 width = 2;
+//     int32 height = 3;
+//     int32 channels = 4;
+//     uint64 timestamp = 5;
+// }
+
+// message KTime {
+//     uint32 sec = 1;
+//     uint32 nsec = 2;
+// }
+
+// message KCompressedImage {
+//     KTime timestamp = 1;
+//     string frame_id = 4;
+//     bytes data = 2;
+//     string format = 3;
+// }
