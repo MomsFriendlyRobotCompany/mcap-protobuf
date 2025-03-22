@@ -1,6 +1,4 @@
-![](docs/brian.webp)
-
-# Protobuf and MCAP Testing
+# Foxglove and MCap tests
 
 ## Linux
 
